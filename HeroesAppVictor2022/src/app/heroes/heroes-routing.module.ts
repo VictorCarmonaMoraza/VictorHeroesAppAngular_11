@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,7 @@ const routes: Routes=[
 
   {
     path: '',
+    component: HomeComponent,
     children: [
       { path: 'listado', component: ListadoComponent },
       { path: 'agregar', component: AgregarComponent },
