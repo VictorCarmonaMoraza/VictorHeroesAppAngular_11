@@ -4,7 +4,8 @@
         <mat-card-subtitle>{{heroesRecibidos.alter_ego}}</mat-card-subtitle>
       </mat-card-header>
 
-      <img mat-card-image src="assets/{{ heroesRecibidos.id }}.jpg">
+      <img mat-card-image [src]="heroesRecibidos | imagen">
+      <!-- <img mat-card-image src="assets/{{ heroesRecibidos.id }}.jpg"> -->
 
       <mat-card-content>
         <h3>{{ heroesRecibidos.publisher }}</h3>

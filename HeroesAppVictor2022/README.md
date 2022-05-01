@@ -1,6 +1,6 @@
-# 10 - HeroeTarjetaComponent
+# 11 - PipeImagen
 
-Creamos un componente para organizar nuestro componentes
+Se genera un pipe para poder tratar as imagenes
 
 
 
