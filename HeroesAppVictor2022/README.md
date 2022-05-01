@@ -1,4 +1,6 @@
-# 9 - Material Card - Flex Layout
+# 10 - HeroeTarjetaComponent
+
+Creamos un componente para organizar nuestro componentes
 
 
 
