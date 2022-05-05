@@ -1,4 +1,4 @@
-# 16 - Editar héroes
+# 17 - Excepciones en nuestro ImagenPipe
   
 
 

@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [
+  styleUrls: ['./agregar.component.css'
   ]
 })
 export class AgregarComponent implements OnInit {
@@ -34,6 +34,10 @@ export class AgregarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //Si no incluye en la url editar entonces no hacemos nada 
+    if (!this.router.url.includes('editar')) {
+      return;
+    }
     //Leemos el id de la url
     this.activatedRoute.params
       .pipe(
@@ -51,7 +55,8 @@ export class AgregarComponent implements OnInit {
     //Para saber si estamos actualizando o creando uno nuevo
     //Actualizar
     if (this.heroe.id) {
-      this.heroesService.actualizarHeroe(this.heroe);
+      this.heroesService.actualizarHeroe(this.heroe)
+        .subscribe(heroe => this.heroe=heroe)
     }
 
     this.heroesService.agregarHeroe(this.heroe)

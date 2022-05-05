@@ -8,11 +8,9 @@
 
   <div fxFlex="50" fxLayout="column">
 
-    <div fxLayout="row"
-         fxLayout.xs="column"
-         fxLayoutGap="20px">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
 
-          <!--Campo superheroe-->
+      <!--Campo superheroe-->
       <mat-form-field fxFlex="100" fxLayout.xs="column">
         <mat-label>Super Héroe</mat-label>
         <input matInput type="text" [(ngModel)]="heroe.superhero" required>
@@ -26,44 +24,43 @@
 
     </div>
 
-    <!--Quien lo creo-->
-    <mat-form-field fxFlex="100">
-      <mat-label>Primera Aparición</mat-label>
-      <input matInput type="text" [(ngModel)]="heroe.first_appearance" required>
-    </mat-form-field>
+    <div fxLayout="column" fxLayout.xs="column">
+      <!--Quien lo creo-->
+      <mat-form-field fxFlex="100">
+        <mat-label>Primera Aparición</mat-label>
+        <input matInput type="text" [(ngModel)]="heroe.first_appearance" required>
+      </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Personajes</mat-label>
-      <input matInput type="text" [(ngModel)]="heroe.characters" required>
-    </mat-form-field>
+      <mat-form-field fxFlex="100">
+        <mat-label>Personajes</mat-label>
+        <input matInput type="text" [(ngModel)]="heroe.characters" required>
+      </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Creador</mat-label>
-      <mat-select [(ngModel)]="heroe.publisher" required>
-        <!-- <mat-option *ngFor="let publisher of publishers">
+      <mat-form-field fxFlex="100">
+        <mat-label>Creador</mat-label>
+        <mat-select [(ngModel)]="heroe.publisher" required>
+          <!-- <mat-option *ngFor="let publisher of publishers">
           {{publisher.desc}}
         </mat-option> -->
-        <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
-          {{publisher.desc}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+          <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
+            {{publisher.desc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Foto Url</mat-label>
-      <input matInput
-        type="url"
-        [(ngModel)]="heroe.alt_img"
-        required>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Foto Url</mat-label>
+        <input matInput type="url" [(ngModel)]="heroe.alt_img" required>
+      </mat-form-field>
 
-    <br>
+      <br>
 
-    <button mat-raised-button color="primary" (click)="guardar()">
-      <mat-icon>edit</mat-icon>
-      Guardar
-    </button>
+      <button mat-raised-button color="primary" (click)="guardar()">
+        <mat-icon>edit</mat-icon>
+        Guardar
+      </button>
 
+    </div>
   </div>
 
   <div fxFlex="50">

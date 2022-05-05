@@ -168,13 +168,13 @@
       "characters": "Norrin Radd"
     },
     {
-      "superhero": "victor",
-      "alter_ego": "",
-      "characters": "",
-      "first_appearance": "",
-      "publisher": "Marvel Comics",
-      "alt_img": "",
-      "id": "atrFD08"
+      "superhero": "Robin",
+      "alter_ego": "oprueba",
+      "characters": "Comedia",
+      "first_appearance": "Comic2",
+      "publisher": "DC Comics",
+      "alt_img": "http://pm1.narvii.com/6160/0975e02aed233d7bf21d492b0b38d0544cf28d9c_00.jpg",
+      "id": "deGlDgA"
     }
   ]
 }

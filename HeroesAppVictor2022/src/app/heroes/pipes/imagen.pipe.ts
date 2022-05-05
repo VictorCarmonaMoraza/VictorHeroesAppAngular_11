@@ -7,7 +7,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ImagenPipe implements PipeTransform {
 
   transform(heroe: Heroe): string {
-    return `assets/${ heroe.id }.jpg`;
+
+    if (!heroe.id && !heroe.alt_img) {
+      return 'assets/no-image.png';
+    } else if (heroe.alt_img) {
+      return heroe.alt_img;
+    } else {
+      return `assets/${heroe.id}.jpg`;
+    }
+
+
+   
   }
 
  // < img mat - card - image src = "assets/{{ heroesRecibidos.id }}.jpg" > -->
