@@ -1,4 +1,4 @@
-# 17 - Excepciones en nuestro ImagenPipe
+# 18 - Eliminar registros
   
 
 
