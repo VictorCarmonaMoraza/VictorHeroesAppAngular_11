@@ -1,3 +1,4 @@
+import { ConfirmarComponent } from './../../components/confirmar/confirmar.component';
 import { HeroesService } from './../../services/heroes.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -5,6 +6,7 @@ import { Heroe, Publisher } from '../../interfaces/heroes.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-agregar',
@@ -32,7 +34,8 @@ export class AgregarComponent implements OnInit {
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private snackBar:MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialog:MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -74,11 +77,14 @@ export class AgregarComponent implements OnInit {
   }
 
   borrarHeroe() {
-    this.heroesService.borrarHeroe(this.heroe.id!)
-      .subscribe(resp => {
-        this.router.navigate(['/heroes']);
-        this.mostrarSnackBar('Registro eliminado');
-    })
+
+    this.dialog.open(ConfirmarComponent);
+
+    // this.heroesService.borrarHeroe(this.heroe.id!)
+    //   .subscribe(resp => {
+    //     this.router.navigate(['/heroes']);
+    //     this.mostrarSnackBar('Registro eliminado');
+    // })
   }
 
   //Metodo para mostrar los mensajes para cada accion
