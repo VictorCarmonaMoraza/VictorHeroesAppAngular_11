@@ -1,4 +1,4 @@
-# 22 - Adecuar los textos de la pantalla de agregar
+# 23 - Pantalla de login básica
   
 
 
