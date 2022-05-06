@@ -1,4 +1,4 @@
-# 21 - Información desde y hacia el dialogo
+# 22 - Adecuar los textos de la pantalla de agregar
   
 
 
