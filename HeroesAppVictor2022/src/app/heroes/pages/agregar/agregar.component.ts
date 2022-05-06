@@ -27,7 +27,7 @@ export class AgregarComponent implements OnInit {
     characters: '',
     first_appearance: '',
     publisher: Publisher.DCComics,
-    alt_img:''
+    alt_img: ''
   }
 
   constructor(
@@ -35,7 +35,7 @@ export class AgregarComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
-    public dialog:MatDialog
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -46,14 +46,14 @@ export class AgregarComponent implements OnInit {
     //Leemos el id de la url
     this.activatedRoute.params
       .pipe(
-      switchMap(({id})=>this.heroesService.getHeroePorId(id))
-    )
-      .subscribe(x=>this.heroe =x)
+        switchMap(({ id }) => this.heroesService.getHeroePorId(id))
+      )
+      .subscribe(x => this.heroe = x)
   }
 
   guardar() {
     //Si superhero es vacio no hagas nada
-    if (this.heroe.superhero.trim().length === 0 ) {
+    if (this.heroe.superhero.trim().length === 0) {
       return;
     }
 
@@ -72,23 +72,31 @@ export class AgregarComponent implements OnInit {
         // console.log('Respuesta', resp);
         this.router.navigate(['/heroes/editar', heroe.id]);
         this.mostrarSnackBar('Registro creado');
-    })
+      })
     //console.table(this.heroe);
   }
 
   borrarHeroe() {
 
-    this.dialog.open(ConfirmarComponent);
+    const dialog = this.dialog.open(ConfirmarComponent, {
+      data: this.heroe
+    });
 
-    // this.heroesService.borrarHeroe(this.heroe.id!)
-    //   .subscribe(resp => {
-    //     this.router.navigate(['/heroes']);
-    //     this.mostrarSnackBar('Registro eliminado');
-    // })
+    dialog.afterClosed().subscribe(
+      (result) => {
+        if (result) {
+          this.heroesService.borrarHeroe(this.heroe.id!)
+            .subscribe(resp => {
+              this.router.navigate(['/heroes']);
+              this.mostrarSnackBar('Registro eliminado');
+            });
+        }
+      }
+    )
   }
 
   //Metodo para mostrar los mensajes para cada accion
-  mostrarSnackBar(mensaje: string):void {
+  mostrarSnackBar(mensaje: string): void {
     this.snackBar.open(mensaje, 'ok!', {
       duration: 2500
     });
