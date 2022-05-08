@@ -27,4 +27,8 @@ export class AuthService {
   get auth(): Auth {
     return { ...this._auth! };
   }
+
+  logout() {
+    this._auth = undefined;
+  }
 }
