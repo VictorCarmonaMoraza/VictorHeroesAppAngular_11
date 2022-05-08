@@ -18,7 +18,7 @@ export class HeroeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private heroesService: HeroesService,
-    private router:Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
