@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -14,18 +13,19 @@ export class AuthService {
   //Propiedad para almacenar los datos de 
   private _auth: Auth | undefined;
 
+  get auth(): Auth {
+    return { ...this._auth! };
+  }
+
   constructor(private http:HttpClient) { }
 
 
-  login():Observable<Auth> {
+  login() {
     return this.http.get<Auth>(`${this.baseUrl}/usuarios/1`)
       .pipe(
-      tap(resp=>this._auth =resp)
-    )
-  }
-
-  get auth(): Auth {
-    return { ...this._auth! };
+        tap( auth => this._auth = auth ),
+        tap( auth => localStorage.setItem('id', auth.id) ),
+      );
   }
 
   logout() {

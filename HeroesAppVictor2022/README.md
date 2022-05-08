@@ -1,4 +1,4 @@
-# 26- Angular Guards - CanLoad
+# 27- CanActivate
 
 
   
